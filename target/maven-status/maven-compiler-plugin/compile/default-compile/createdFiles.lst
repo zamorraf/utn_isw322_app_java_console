@@ -1,0 +1,10 @@
+datos\Direccion.class
+presentacion\frmPrincipal.class
+presentacion\frmPrincipal$2.class
+persistencia\ClienteDAO.class
+persistencia\Data.class
+datos\Cliente.class
+presentacion\frmPrincipal$1.class
+negocio\IniciarDatosService.class
+negocio\ClienteService.class
+persistencia\InicializarDatos.class
