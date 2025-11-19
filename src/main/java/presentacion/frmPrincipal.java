@@ -188,8 +188,18 @@ public class frmPrincipal extends javax.swing.JFrame {
         jLabel10.setText("Otras Señas");
 
         btnAceptar.setText("Aceptar");
+        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAceptarActionPerformed(evt);
+            }
+        });
 
         btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
 
         btnInsertar.setText("+");
         btnInsertar.addActionListener(new java.awt.event.ActionListener() {
@@ -374,6 +384,44 @@ public class frmPrincipal extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnInsertarActionPerformed
+
+    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+       
+        // Obtiene los datos de pantalla
+        String cedula = txtCedula.getText();
+        String nombre = txtNombre.getText();
+        String apellido1 = txtApellido1.getText();
+        String apellido2 = txtApellido2.getText();
+        String nacionalidad = txtNacionalidad.getText();
+        
+        var cliente = new Cliente(cedula, nombre, apellido1, apellido2, nacionalidad);
+        
+        ClienteService servicioCliente = new ClienteService ();
+        servicioCliente.insertarCliente(cliente);
+        
+        // limpiar lista
+        
+        modelo.clear();
+        cargaClientesLista();
+        
+        // Interfaz
+        // Limpiar campos de entrada de datos;
+        limpiarEdicionEntradaDatos();
+        
+        // Activa menú de botones
+        cambiarEstadoBotones(false);
+        
+        // desselecciona list
+        lstClientes.setSelectedIndex(-1);
+        
+        // Habilitar campos de edición
+        cambiarEdicionEntradaDatos(false);
+        
+    }//GEN-LAST:event_btnAceptarActionPerformed
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLimpiarActionPerformed
 
   
     
